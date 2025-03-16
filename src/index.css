@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom slider styles */
+@layer base {
+  input[type="range"] {
+    @apply appearance-none h-1 rounded-full;
+    background: #e5e7eb;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer border-0;
+  }
+
+  input[type="range"]:focus {
+    @apply outline-none;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    @apply rounded-full;
+  }
+
+  input[type="range"]::-moz-range-track {
+    @apply rounded-full;
+  }
+}
+
+/* Dynamic slider background update */
+@layer components {
+  .range-slider {
+    @apply appearance-none h-1 rounded-full;
+    background: #e5e7eb;
+  }
+  
+  .range-slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .range-slider::-moz-range-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer border-0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .range-slider:focus {
+    @apply outline-none;
+  }
+
+  /* Container for slider and track */
+  .slider-container {
+    @apply relative;
+  }
+
+  /* Track styles */
+  .slider-track {
+    @apply absolute top-1/2 left-0 h-1 bg-black rounded-full pointer-events-none;
+    transform: translateY(50%);
+  }
+
+  /* Range track styles */
+  .range-slider::-webkit-slider-runnable-track {
+    @apply rounded-full;
+  }
+
+  .range-slider::-moz-range-track {
+    @apply rounded-full;
+  }
+}
