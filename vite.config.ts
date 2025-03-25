@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: './', // GitHub Pages相对路径部署
+  base: '/chair-configurator/', // 修改这里，从'./'改为'/chair-configurator/'
 });
