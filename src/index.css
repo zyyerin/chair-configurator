@@ -2,19 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 全局主题变量 */
+:root {
+  --primary-color: #3b82f6; /* 蓝色 (blue-500) */
+  --primary-hover: #2563eb; /* 蓝色 hover (blue-600) */
+  --border-radius: 8px; /* 统一圆角 */
+}
+
 /* Custom slider styles */
 @layer base {
   input[type="range"] {
-    @apply appearance-none h-1 rounded-full;
+    @apply appearance-none h-1 rounded;
     background: #e5e7eb;
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer;
+    @apply appearance-none w-4 h-4 rounded bg-black cursor-pointer;
   }
 
   input[type="range"]::-moz-range-thumb {
-    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer border-0;
+    @apply appearance-none w-4 h-4 rounded bg-black cursor-pointer border-0;
   }
 
   input[type="range"]:focus {
@@ -22,29 +29,29 @@
   }
 
   input[type="range"]::-webkit-slider-runnable-track {
-    @apply rounded-full;
+    @apply rounded;
   }
 
   input[type="range"]::-moz-range-track {
-    @apply rounded-full;
+    @apply rounded;
   }
 }
 
 /* Dynamic slider background update */
 @layer components {
   .range-slider {
-    @apply appearance-none h-1 rounded-full;
+    @apply appearance-none h-1 rounded;
     background: #e5e7eb;
   }
   
   .range-slider::-webkit-slider-thumb {
-    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer;
+    @apply appearance-none w-4 h-4 rounded bg-black cursor-pointer;
     position: relative;
     z-index: 2;
   }
   
   .range-slider::-moz-range-thumb {
-    @apply appearance-none w-4 h-4 rounded-full bg-black cursor-pointer border-0;
+    @apply appearance-none w-4 h-4 rounded bg-black cursor-pointer border-0;
     position: relative;
     z-index: 2;
   }
@@ -60,16 +67,76 @@
 
   /* Track styles */
   .slider-track {
-    @apply absolute top-1/2 left-0 h-1 bg-black rounded-full pointer-events-none;
+    @apply absolute top-1/2 left-0 h-1 bg-black rounded pointer-events-none;
     transform: translateY(50%);
   }
 
   /* Range track styles */
   .range-slider::-webkit-slider-runnable-track {
-    @apply rounded-full;
+    @apply rounded;
   }
 
   .range-slider::-moz-range-track {
-    @apply rounded-full;
+    @apply rounded;
+  }
+  
+  /* Chat interface animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  /* Custom scrollbar for chat */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Message bubble hover effects */
+  .message-bubble {
+    transition: transform 0.15s ease-in-out;
+  }
+  
+  .message-bubble:hover {
+    transform: scale(1.01);
+  }
+
+  /* 通用样式类 */
+  .btn-primary {
+    @apply bg-[color:var(--primary-color)] text-white hover:bg-[color:var(--primary-hover)] rounded;
+  }
+
+  .btn-secondary {
+    @apply border border-gray-300 hover:bg-gray-50 rounded;
+  }
+
+  .input-field {
+    @apply border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[color:var(--primary-color)];
+  }
+
+  .card {
+    @apply bg-white rounded shadow-sm;
   }
 }

@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment, Grid } from '@react-three/drei';
-import { ChairModel } from './components/ChairModel';
+import { TableModel } from './components/TableModel';
 import { ConfigPanel } from './components/ConfigPanel';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="flex flex-col h-screen bg-white">
       {/* Header */}
       <header className="bg-black text-white p-4">
-        <h1 className="text-xl font-semibold">MeshRare Chair Configurator</h1>
+        <h1 className="text-xl font-semibold ml-4">MeshRare Table Configurator</h1>
       </header>
 
       <div className="flex flex-1 p-8 gap-8">
@@ -31,7 +31,7 @@ function App() {
               fadeDistance={10}
               infiniteGrid
             />
-            <ChairModel />
+            <TableModel />
           </Canvas>
         </div>
 
